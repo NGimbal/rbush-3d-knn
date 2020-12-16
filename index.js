@@ -1,6 +1,6 @@
 import Queue from 'tinyqueue';
 
-export default function knn(tree, x, y, n, predicate, maxDistance) {
+export default function knn(tree, x, y, z, n, predicate, maxDistance) {
     var node = tree.data,
         result = [],
         toBBox = tree.toBBox,
@@ -11,7 +11,7 @@ export default function knn(tree, x, y, n, predicate, maxDistance) {
     while (node) {
         for (i = 0; i < node.children.length; i++) {
             child = node.children[i];
-            dist = boxDist(x, y, node.leaf ? toBBox(child) : child);
+            dist = boxDist(x, y, z, node.leaf ? toBBox(child) : child);
             if (!maxDistance || dist <= maxDistance * maxDistance) {
                 queue.push({
                     node: child,
@@ -39,10 +39,11 @@ function compareDist(a, b) {
     return a.dist - b.dist;
 }
 
-function boxDist(x, y, box) {
+function boxDist(x, y, z, box) {
     var dx = axisDist(x, box.minX, box.maxX),
-        dy = axisDist(y, box.minY, box.maxY);
-    return dx * dx + dy * dy;
+        dy = axisDist(y, box.minY, box.maxY),
+        dz = axisDist(z, box.minZ, box.maxZ);
+    return dx * dx + dy * dy + dz * dz;
 }
 
 function axisDist(k, min, max) {
