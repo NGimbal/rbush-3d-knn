@@ -1,4 +1,4 @@
-import RBush from 'rbush';
+import RBush from 'rbush'; //rbush 3d change
 import knn from './index';
 
 var N = 200000,
@@ -31,11 +31,14 @@ console.timeEnd('bbox query x ' + M);
 
 function randPoint() {
     var x = Math.floor(Math.random() * 100000),
-        y = Math.floor(Math.random() * 100000);
+        y = Math.floor(Math.random() * 100000),
+        z = Math.floor(Math.random() * 100000);
     return {
         minX: x,
         minY: y,
+        minZ: z,
         maxX: x,
-        maxY: y
+        maxY: y,
+        maxZ: z,
     };
 }
