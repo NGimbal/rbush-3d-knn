@@ -27,7 +27,7 @@ var neighbors = knn(tree, 40, 40, 40, 10, function (item) {
 **knn(tree, x, y, z, [k, filterFn, maxDistance])**
 
 - `tree`: an RBush tree
-- `x`, `y`: query coordinates
+- `x`, `y` , `z`: query coordinates
 - `k`: number of neighbors to search for (`Infinity` by default)
 - `filterFn`: optional filter function; `k` nearest items where `filterFn(item) === true` will be returned.
 - `maxDistance` (optional): maximum distance between neighbors and the query coordinates (`Infinity` by default)
