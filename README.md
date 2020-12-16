@@ -1,7 +1,6 @@
 ## rbush-knn [![Build Status](https://travis-ci.org/mourner/rbush-knn.svg?branch=master)](https://travis-ci.org/mourner/rbush-knn)
 
 ### WIP
-Intended to work with rbush-3d at https://github.com/Eronana/rbush-3d
 
 _k_-nearest neighbors search for [RBush-3d](https://github.com/Eronana/rbush-3d).
 Implements a simple depth-first kNN search algorithm using a priority queue.
